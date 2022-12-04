@@ -1,0 +1,152 @@
+---
+openapi: 3.0.3
+info:
+  title: DSental (Data Sentiment Analysis) - Binar Challenge Platinum
+  version: 1.4.0
+  description: Hello! Welcome to DSental - Data Sentiment Analysis! This RESTful API has
+    a function for giving sentiment to text and file given by user. Created by Yuna Winaya & Amnah Kurnia
+    and dedicated to Binar Challenge Platinum.
+  contact:
+    name: Yuna Winaya & Amnah Kurnia
+    email: gedeyuna@gmail.com & kurniaamnah@gmail.com
+    url: https://www.github.com/yunawinaya & https://github.com/Amnah014
+  license:
+    name: APACHE 2.0
+    url: htpps://www.apache.org/licenses/LICENSE-2.0
+servers:
+- description: DSental (Data Sentiment Analysis)
+  url: "/"
+externalDocs:
+  description: 'Github Code: DSental - Binar Gold Platinum'
+  url: https://www.github.com/yunawinaya & https://github.com/Amnah014
+tags:
+- name: Welcome Page
+  description: DSental (Data Sentiment Analysis)
+- name: Sentiment Analysis using SKLearn Neural Network
+  description: Analysis using SKLearn Neural Network as the training model
+- name: Sentiment Analysis using Tensorflow LSTM
+  description: Analysis using Tensorflow LSTM as the training model
+paths:
+  "/":
+    get:
+      tags:
+      - Welcome Page
+      summary: Welcome Page
+      description: Welcome to DSental!
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Misunderstood
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '500':
+          description: Server Error
+  "/text_sklearn":
+    post:
+      tags:
+      - Sentiment Analysis using SKLearn Neural Network
+      summary: Post a text
+      description: Post a text file to analyze
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Misunderstood
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '500':
+          description: Server Error
+  "/file_sklearn":
+    post:
+      tags:
+      - Sentiment Analysis using SKLearn Neural Network
+      summary: Post a csv file
+      description: Post a csv file to analyze
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: base64
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Misunderstood
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '500':
+          description: Server Error
+  "/text_tensorflow":
+    post:
+      tags:
+      - Sentiment Analysis using Tensorflow LSTM
+      summary: Post a text
+      description: Post a text file to analyze
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Misunderstood
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '500':
+          description: Server Error
+  "/file_tensorflow":
+    post:
+      tags:
+      - Sentiment Analysis using Tensorflow LSTM
+      summary: Post a csv file
+      description: Post a csv file to analyze
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: base64
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Misunderstood
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '500':
+          description: Server Error
